@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Book</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>My Recipe Book</h1>
+        <nav>
+            <button id="showAddRecipeFormBtn">Add New Recipe</button>
+            <button id="showAllRecipesBtn">View All Recipes</button>
+        </nav>
+    </header>
+
+    <main>
+        <section id="addRecipeSection" class="hidden">
+            <h2>Add a New Recipe</h2>
+            <form id="recipeForm">
+                <label for="recipeName">Recipe Name:</label>
+                <input type="text" id="recipeName" required>
+
+                <label for="recipeImage">Image URL:</label>
+                <input type="url" id="recipeImage" placeholder="e.g., https://example.com/image.jpg">
+                <small>(Optional: Link to an image of your dish)</small>
+
+                <label for="recipeIngredients">Ingredients (one per line):</label>
+                <textarea id="recipeIngredients" rows="6" required></textarea>
+
+                <label for="recipeSteps">Preparation Steps (one per line):</label>
+                <textarea id="recipeSteps" rows="8" required></textarea>
+
+                <button type="submit">Save Recipe</button>
+            </form>
+        </section>
+
+        <section id="viewRecipesSection">
+            <h2>All Recipes</h2>
+            <div class="search-container">
+                <input type="text" id="recipeSearchInput" placeholder="Search by name or ingredient...">
+                <button id="searchBtn">Search</button>
+            </div>
+            <div id="recipesContainer">
+                <p class="no-recipes-message">No recipes added yet. Add some delicious recipes!</p>
+            </div>
+        </section>
+
+        <div id="recipeDetailModal" class="modal hidden">
+            <div class="modal-content">
+                <span class="close-button">&times;</span>
+                <h2 id="modalRecipeName"></h2>
+                <img id="modalRecipeImage" src="" alt="Recipe Image">
+                <h3>Ingredients:</h3>
+                <ul id="modalRecipeIngredients"></ul>
+                <h3>Preparation Steps:</h3>
+                <ol id="modalRecipeSteps"></ol>
+                <button id="deleteRecipeBtn">Delete Recipe</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
